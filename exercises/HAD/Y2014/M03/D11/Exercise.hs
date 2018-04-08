@@ -13,7 +13,7 @@ module HAD.Y2014.M03.D11.Exercise where
 -- "abcdefghijklmnopqrstuvwxyz"
 --
 -- >>> lcAlphabetFrom 'e'
--- "efghijklmnopqrstuvwxyzabcd"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         -- "efghijklmnopqrstuvwxyzabcd"
 --
 -- >>> lcAlphabetFrom '`'
 -- "abcdefghijklmnopqrstuvwxyz"
@@ -22,4 +22,4 @@ module HAD.Y2014.M03.D11.Exercise where
 -- "abcdefghijklmnopqrstuvwxyz"
 
 lcAlphabetFrom :: Char -> String
-lcAlphabetFrom = undefined
+lcAlphabetFrom = maybe 'a' id . find(flip inRange ('a','z')).[]

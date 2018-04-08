@@ -11,4 +11,7 @@ module HAD.Y2014.M02.D24.Exercise where
 -- [2,2,3]
 
 --filterByPair :: Find the most generic signature
-filterByPair = undefined
+
+filterByPair [] = []
+filterByPair [_] = []
+filterByPair l = map fst $ filter (\(a,b) -> a==b) $  zip l (tail l) 

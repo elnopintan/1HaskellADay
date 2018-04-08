@@ -12,4 +12,5 @@ module HAD.Y2014.M02.D27.Exercise where
 -- Nothing
 --
 divIfMultiple :: Integral a => a -> [a] -> Maybe [a]
-divIfMultiple x = undefined
+divIfMultiple x = sequence . map (divIfMultiple' x) where
+  divIfMultiple' x y = if (y `rem` x == 0) then Just (y `div` x) else Nothing

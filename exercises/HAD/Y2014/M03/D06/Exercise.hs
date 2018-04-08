@@ -1,5 +1,7 @@
 module HAD.Y2014.M03.D06.Exercise where
 
+import Data.List (inits)
+
 -- | takeStrictlyLessThan take elements of a list whils their sum is
 -- _strictly_ less than a given number
 --
@@ -16,6 +18,6 @@ module HAD.Y2014.M03.D06.Exercise where
 --
 -- >>> takeStrictlyLessThan (42::Int) $ []
 -- []
---
+
 -- takeStrictlyLessThan :: Choose your poison
-takeStrictlyLessThan = undefined
+takeStrictlyLessThan t = last . takeWhile (\l -> (sum l) < t) . inits 

@@ -1,4 +1,5 @@
 module HAD.Y2014.M02.D26.Exercise where
+import Control.Applicative (liftA2)
 
 -- | Sum the value inside the maybe if there aren't any Nothing,
 -- otherwise return Nothing
@@ -12,4 +13,4 @@ module HAD.Y2014.M02.D26.Exercise where
 -- Nothing
 --
 sumIfAll :: Num a => [Maybe a] -> Maybe a
-sumIfAll =  undefined
+sumIfAll = foldl (liftA2 (+)) (Just 0) 

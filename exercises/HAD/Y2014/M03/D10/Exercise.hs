@@ -1,5 +1,7 @@
 module HAD.Y2014.M03.D10.Exercise where
 
+import Data.Char (isDigit)
+
 -- $setup
 -- >>> import Test.QuickCheck
 -- >>> import Control.Applicative
@@ -15,9 +17,9 @@ module HAD.Y2014.M03.D10.Exercise where
 --
 -- >>> maybeReadPositiveInt "foo"
 -- Nothing
---
+-- 
 -- >>> maybeReadPositiveInt "12 "
 -- Nothing
 --
 maybeReadPositiveInt :: String -> Maybe Int
-maybeReadPositiveInt = undefined
+maybeReadPositiveInt s = if all isDigit s then (Just $ read s) else Nothing 

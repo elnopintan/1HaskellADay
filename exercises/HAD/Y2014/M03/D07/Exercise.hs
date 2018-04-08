@@ -15,7 +15,11 @@ module HAD.Y2014.M03.D07.Exercise where
 -- [True,False,True,False,True,False]
 --
 -- >>> take 3 $ trueIndexes []
--- [False, False, False]
+-- [False,False,False]
 --
 trueIndexes :: [Int] -> [Bool]
-trueIndexes = undefined
+trueIndexes l = map (\(i,l) -> not (null l) && (i == head l)) $ iterate trueIndexes' (0,l)
+
+trueIndexes' :: (Int,[Int]) -> (Int, [Int])
+trueIndexes' (i, []) =  (i,[])
+trueIndexes' (i, l) = (i+1, if i == head l then tail l else l)
