@@ -22,4 +22,4 @@ module HAD.Y2014.M03.D11.Exercise where
 -- "abcdefghijklmnopqrstuvwxyz"
 
 lcAlphabetFrom :: Char -> String
-lcAlphabetFrom = maybe 'a' id . find(flip inRange ('a','z')).[]
+lcAlphabetFrom = uncurry (flip (++)) . flip break ['a' .. 'z'] . (==)
