@@ -1,5 +1,6 @@
 module HAD.Y2014.M03.D12.Exercise where
 
+
 -- | localMax Given an entry list, it outputs the its list of local maxima.
 -- A Local maximum is a an element greater than its predecessor and than its
 -- successor.
@@ -19,4 +20,7 @@ module HAD.Y2014.M03.D12.Exercise where
 -- [2,3,4,5]
 --
 localMax :: Ord a => [a] -> [a]
-localMax = undefined
+localMax s = let
+  isLocalMax (prev, c, post) = (c > prev) && (c > post)
+  fst3 (_ , v, _) = v in
+    map fst3 $ filter isLocalMax $  zip3 s (drop 1 s) (drop 2 s)  
